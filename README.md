@@ -1,7 +1,7 @@
 # Django
 Some commands in Django
 
-**<u>Virtual Environment</u>**
+<u>Virtual Environment</u>
 ```
 python -m venv venv 
 
