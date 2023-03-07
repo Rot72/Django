@@ -14,13 +14,13 @@ python -m venv venv
 
 ```
 django-admin startproject my_tennis_club 
-```
+
 py manage.py runserver 
 ```
 **create a new Django application called 'members'
 ```
 py manage.py startapp members 
-
+```
 Views 
 
 view called 'members' that will return 'Hello World!'  
