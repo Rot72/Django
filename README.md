@@ -35,10 +35,10 @@ from django.http import HttpResponse
 def members(request): 
     return HttpResponse("Hello world!") 
 ```
- 
 
 send a variable named 'points' with the value 5 into the template 
 
+```
 from django.http import HttpResponse 
 from django.template import loader 
  
@@ -48,9 +48,9 @@ def members(request):
     'points': 5, 
   } 
   return HttpResponse(template.render(context, request)) 
-
+```
  
-
+```
 from django.http import HttpResponse 
 from django.template import loader 
 from .models import Member 
@@ -78,26 +78,28 @@ def details(request, id):
 def main(request): 
   template = loader.get_template('main.html') 
   return HttpResponse(template.render()) 
- 
+``` 
 
-**URLS** 
+<h2>URLS</h2>
 
 Create a file named urls.py in the same folder as the views.py file, and type this code in it: 
 
 my_tennis_club/members/urls.py: 
 
+``` 
 from django.urls import path 
 from . import views 
  
 urlpatterns = [ 
     path('members/', views.members, name='members'), 
 ] 
- 
+ ``` 
 
 list of paths of how to handle incomming requests 
 
 my_tennis_club/my_tennis_club/urls.py: 
 
+``` 
 from django.contrib import admin 
 from django.urls import include, path 
  
@@ -105,11 +107,11 @@ urlpatterns = [
     path('', include('members.urls')), 
     path('admin/', admin.site.urls), 
 ] 
-
- 
+``` 
 
 my_tennis_club/members/urls.py: 
 
+``` 
 from django.urls import path 
 from . import views 
  
@@ -121,17 +123,16 @@ urlpatterns = [
 
     path('members/details/<int:id>', views.details, name='details'), 
 ] 
-
+``` 
  
+<h2>Syntax</h2>
 
-**Syntax **
-
+``` 
 <h1>Hello {{ firstname }}, how are you?</h1> 
+``` 
 
- 
-
+``` 
 if statement: 
-
 {% if greeting == 1 %} 
   <h1>Hello</h1> 
 {% elif greeting == 2 %} 
@@ -140,28 +141,30 @@ if statement:
   <h1>Goodbye</h1> 
 {% endif %} 
  
-
+``` 
 Parentheses are not allowed in if statements in Django, so when you combine and and or operators, it is important to know that parentheses are added for and but not for or. 
 
+``` 
 {% if (greeting == 1 and day == "Friday") or greeting == 5 %} 
- 
+ ``` 
 
 To check if a certain item is not present in an object. 
 
+``` 
 {% if 'Banana' not in fruits %} 
   <h1>Hello</h1> 
 {% else %} 
   <h1>Goodbye</h1> 
 {% endif %} 
-
+``` 
  
-
-is 
+**is**
 
 Check if two objects are the same. 
 
 This operator is different from the == operator, because the == operator checks the values of two objects, but the is operator checks the identity of two objects. 
 
+``` 
 from django.http import HttpResponse 
 from django.template import loader 
  
@@ -172,32 +175,33 @@ def testing(request):
     'y': ['Apple', 'Banana', 'Cherry'],  
   } 
   return HttpResponse(template.render(context, request))   
-
+``` 
  
 **Different objects**
 
+``` 
 {% if x is y %} 
   <h1>YES</h1> 
 {% else %} 
   <h1>NO</h1> 
 {% endif %} 
 NO 
-
+``` 
  
 **Different objects same values**
 
+``` 
 {% if x == y %} 
   <h1>YES</h1> 
 {% else %} 
   <h1>NO</h1> 
 {% endif %} 
-
 YES 
-
- 
+``` 
 
 **Same objects** 
 
+``` 
 {% with var1=x var2=x %} 
   {% if var1 is var2 %} 
     <h1>YES</h1> 
@@ -205,28 +209,30 @@ YES
     <h1>NO</h1> 
   {% endif %} 
 {% endwith %} 
-
- 
+```  
 
 **Comments **
 
+``` 
 <h1>Welcome Everyone</h1> 
 {% comment "this was the original welcome message" %} 
     <h1>Welcome ladies and gentlemen</h1> 
 {% endcomment %} 
 
 <h1>Welcome{# Everyone#}</h1> 
+``` 
 
 **For Loops **
 
+``` 
 {% for x in cars %} 
   <h1>{{ x.brand }}</h1> 
   <p>{{ x.model }}</p> 
   <p>{{ x.year }}</p> 
 {% endfor %} 
-
+``` 
  
-
+``` 
 {% for x in members %} 
   <h1>{{ x.id }}</h1> 
   <p> 
@@ -234,17 +240,17 @@ YES
     {{ x.lastname }} 
   </p> 
 {% endfor %} 
-
+``` 
  
-
+``` 
 {% for x in fruits reversed %} 
   <p>{{ x }}</p> 
 {% endfor %} 
-
+``` 
  
-
 The empty keyword can be used if you want to do something special if the object is empty. 
 
+``` 
 <ul> 
   {% for x in emptytestobject %} 
     <li>{{ x.firstname }}</li> 
@@ -252,11 +258,11 @@ The empty keyword can be used if you want to do something special if the object 
     <li>No members</li> 
   {% endfor %} 
 </ul> 
-
+``` 
  
-
 The empty keyword can also be used if the object does not exist: 
 
+``` 
 <ul> 
   {% for x in myobject %} 
     <li>{{ x.firstname }}</li> 
@@ -264,48 +270,47 @@ The empty keyword can also be used if the object does not exist:
     <li>No members</li> 
   {% endfor %} 
 </ul> 
-
+``` 
  
-
 create variables directly in the template 
 
+``` 
 {% with firstname="Tobias" %} 
 <h1>Hello {{ firstname }}, how are you?</h1> 
-
+``` 
  
-
 Loop Variables 
 
 Django has some variables that are available for you inside a loop: 
 
-    forloop.counter 
+forloop.counter 
 
-    forloop.counter0 
+forloop.counter0 
 
-    forloop.first 
+forloop.first 
 
-    forloop.last 
+forloop.last 
 
-    forloop.parentloop 
+forloop.parentloop 
 
-    forloop.revcounter 
+forloop.revcounter 
 
-    forloop.revcounter0 
-
+forloop.revcounter0 
  
-
+``` 
 <ul> 
   {% for x in fruits %} 
     <li>{{ forloop.counter }}</li> 
   {% endfor %} 
 </ul> 
-
+``` 
  
 
 This is done in the settings.py file in the my_tennis_club folder. 
 
 Look up the INSTALLED_APPS[] list and add the members app like this: 
 
+``` 
 INSTALLED_APPS = [ 
     'django.contrib.admin', 
     'django.contrib.auth', 
@@ -319,26 +324,27 @@ INSTALLED_APPS = [
 py manage.py migrate 
 
 py manage.py runserver 
-
+``` 
  
-
 Include 
 
+``` 
 <h1>Hello</h1> 
  
 <p>This is a Django template with a footer.</p> 
  
 {% include 'footer.html' %} 
-
- 
+``` 
 
 templates/mymenu.html: 
 
+``` 
 <div>HOME | {{ me }} | ABOUT | FORUM | {{ sponsor }}</div> 
-
+``` 
  
 templates/template.html: 
 
+``` 
 <!DOCTYPE html> 
 <html> 
 <body> 
@@ -351,15 +357,13 @@ templates/template.html:
  
 </body> 
 </html> 
-
+``` 
  
-
- 
-
-Template 
+<h2>Template</h2>
 
 Create a templates folder inside the members folder, and create a HTML file named myfirst.html. 
 
+``` 
 <!DOCTYPE html> 
 <html> 
 <body> 
@@ -369,11 +373,11 @@ Create a templates folder inside the members folder, and create a HTML file name
  
 </body> 
 </html> 
-
- 
+```  
 
 my_tennis_club/mystaticfiles/mystyles.css: 
 
+``` 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap'); 
 body { 
   margin:0; 
@@ -404,12 +408,11 @@ body {
   box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);  
   padding: 20px; 
 } 
+```  
+
+ my_tennis_club/members/templates/master.html: 
  
-
- 
-
-my_tennis_club/members/templates/master.html: 
-
+``` 
 {% load static %} 
 <!DOCTYPE html> 
 <html> 
@@ -429,11 +432,11 @@ my_tennis_club/members/templates/master.html:
  
 </body> 
 </html> 
-
+``` 
  
-
 my_tennis_club/members/templates/main.html: 
 
+``` 
 {% extends "master.html" %} 
  
 {% block title %} 
@@ -449,13 +452,13 @@ my_tennis_club/members/templates/main.html:
   <p>Check out all our <a href="members/">members</a></p> 
    
 {% endblock %} 
-
+``` 
  
-
 The list in all_members.html should be clickable, and take you to the details page with the ID of the member you clicked on: 
 
 my_tennis_club/members/templates/all_members.html 
 
+``` 
 {% extends "master.html" %} 
  
 {% block title %} 
@@ -473,10 +476,11 @@ my_tennis_club/members/templates/all_members.html
     </ul> 
   </div> 
 {% endblock %} 
- 
+ ``` 
 
 my_tennis_club/members/templates/details.html 
 
+``` 
 {% extends "master.html" %} 
  
 {% block title %} 
@@ -490,32 +494,29 @@ my_tennis_club/members/templates/details.html
     <p>Member since: {{ mymember.joined_date }}</p> 
   </div> 
 {% endblock %} 
- 
-
- 
- 
+ ``` 
 
 Set the debug property to False, and allow the project to run from your local host: my_tennis_club/my_tennis_club/settings.py: 
 
-. 
-. 
+```  
 # SECURITY WARNING: don't run with debug turned on in production! 
 DEBUG = False 
  
 ALLOWED_HOSTS = ['*'] 
 . 
 . 
+``` 
 
 Important: When DEBUG = False, Django requires you to specify the hosts you will allow this Django project to run from. 
-
 In production, this should be replaced with a proper domain name: 
 
+``` 
 ALLOWED_HOSTS = ['yourdomain.com'] 
-
+``` 
  
-
 my_tennis_club/members/templates/404.html: 
 
+``` 
 <!DOCTYPE html> 
 <html> 
 <title>Wrong address</title> 
@@ -527,15 +528,15 @@ my_tennis_club/members/templates/404.html:
  
 </body> 
 </html> 
-
+``` 
  
-
-Models 
+<h2>Models</h2>
 
 Django models are specified as classes in the models.py file. 
 
 my_tennis_club/members/models.py: 
 
+``` 
 from django.db import models 
  
 class Member(models.Model): 
@@ -546,45 +547,44 @@ class Member(models.Model):
  
   def __str__(self): 
     return f"{self.firstname} {self.lastname}" 
-
- 
+```  
 
 changes in the models.py file that affects the database, you must run two migration commands to make the model synchronized with the database. 
 
+``` 
 py manage.py makemigrations members 
- 
+ ``` 
 
 Django creates a file describing the changes and stores the file in the /migrations/  
 
 folder: my_tennis_club/members/migrations/0001_initial.py 
 
- 
-
- 
 The table is not created yet, you will have to run one more command, then Django will create and execute an SQL statement, based on the content of the new file in the /migrations/ folder.  
 
+``` 
 py manage.py migrate 
-
+``` 
  
-
 a field called 'points', that must be a integer of some sort, positive or negative 
 
+``` 
 from django.db import models 
  
 class Test(models.Model): 
   points = models.IntegerField() 
-
+``` 
  
-Admin 
+<h2>Admin</h2>
 
+``` 
 py manage.py createsuperuser 
+``` 
 
 To include the Member model in the admin interface, we have to tell Django that this model should be visible in the admin interface. 
 
- 
-
 my_tennis_club/members/admin.py: 
 
+``` 
 from django.contrib import admin 
  
 from .models import Member 
@@ -593,16 +593,15 @@ from .models import Member
 
 class MemberAdmin(admin.ModelAdmin): 
   list_display = ("firstname", "lastname", "joined_date",) 
-
+``` 
  
-
 To make your models viewable in the admin interface, they have to be registered in the admin.py file. 
 
+``` 
 admin.site.register(Member) 
+```  
 
- 
-
-Queryset 
+<h2>Queryset</h2>
 
 A QuerySet is a collection of data from a database. 
 
@@ -610,10 +609,9 @@ A QuerySet is built up as a list of objects.
 
 QuerySets makes it easier to get the data you actually need, by allowing you to filter and order the data at an early stage. 
 
- 
-
 The values() Method 
 
+``` 
 from django.http import HttpResponse 
 from django.template import loader 
 from .models import Member 
@@ -625,32 +623,26 @@ def testing(request):
 
   # Return Specific Rows  # mydata = Member.objects.filter(firstname='Emil').values() 
 
-   
-
   # Return records where lastname is "Refsnes" and id is 2:   
 
   # mydata = Member.objects.filter(lastname='Refsnes', id=2).values() 
 
- 
-
   # .filter(firstname__startswith='L'); 
- 
-
  
   template = loader.get_template('template.html') 
   context = { 
     'mymembers': mydata, 
   } 
   return HttpResponse(template.render(context, request)) 
-
+``` 
  
-
 Return records where firstname is either "Emil" or Tobias": 
 
+``` 
 mydata = Member.objects.filter(firstname='Emil').values() | Member.objects.filter(firstname='Tobias').values() 
+``` 
 
- 
-
+``` 
 from django.http import HttpResponse 
 from django.template import loader 
 from .models import Member 
@@ -663,75 +655,71 @@ def testing(request):
     'mymembers': mydata, 
   } 
   return HttpResponse(template.render(context, request)) 
-
- 
-
- 
+``` 
 
 records where firstname starts with the capital letter 'L' 
 
+``` 
 mydata = Member.objects.filter(firstname__startswith='L').values() 
-
+``` 
  
-
 case-insensitive search to return the records where 'firstname' starts with the letter 'L' 
 
+``` 
 Member.objects.filter(firstname__istartswith='L').values() 
-
- 
+``` 
 
 sort the result aplhabetically on firstname 
 
+``` 
 Member.objects.all().order_by('firstname').values() 
-
- 
+```  
 
 sort the result aplhabetically DESCENDING on the field 'firstname' 
 
+``` 
 Member.objects.all().order_by('-firstname').values() 
-
+``` 
  
-
 Order the result first by lastname ascending, then descending on id: 
 
+``` 
 mydata = Member.objects.all().order_by('lastname', '-id').values() 
-
+``` 
  
-
- 
-
-Static Files 
+<h2>Static Files</h2>
 
 settings.py 
 
+``` 
 # SECURITY WARNING: don't run with debug turned on in production! 
 
 DEBUG = False 
 ALLOWED_HOSTS = [] 
+``` 
 
- 
-
+``` 
 # SECURITY WARNING: don't run with debug turned on in production! 
 DEBUG = False 
 
 ALLOWED_HOSTS = ['*'] 
-
- 
+``` 
 
 When collecting static files for your project, you have to specify where to collect them 
 
+``` 
 STATIC_ROOT = BASE_DIR / 'productionfiles' 
  
 STATIC_URL = 'static/' 
-
+``` 
  
-
 When collecting static static files for your project, you have to run a specific command 
 
+``` 
 py manage.py collectstatic  
-
+``` 
  
-
+``` 
 {% load static %} 
 
 <!DOCTYPE html> 
@@ -743,15 +731,15 @@ py manage.py collectstatic
  
 </body> 
 </html> 
-
+``` 
  
-
-WhiteNoise 
+<h2>WhiteNoise</h2>
 
 Django does not have a built-in solution for serving static files, at least not in production when DEBUG has to be False. 
 
 We have to use a third-party solution to accomplish this. 
 
+``` 
 pip install whitenoise 
 
 my_tennis_club/my_tennis_club/settings.py: 
@@ -765,9 +753,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware', 
     'django.middleware.clickjacking.XFrameOptionsMiddleware', 
     'whitenoise.middleware.WhiteNoiseMiddleware', 
-] 
-
- 
+]
+```  
 
 my_tennis_club/my_tennis_club/settings.py: 
 
@@ -775,17 +762,19 @@ In the STATICFILES_DIRS list, you can list all the directories where Django shou
 
 The BASE_DIR keyword represents the root directory of the project, and together with the / "mystaticfiles", it means the mystaticfiles folder in the root directory. 
 
- 
-
+``` 
 STATIC_ROOT = BASE_DIR / 'productionfiles' 
 STATIC_URL = 'static/' 
 
 STATICFILES_DIRS = [ 
     BASE_DIR / 'mystaticfiles' 
 ] 
+``` 
 
 Every time you make a change in a static file, you must run the collectstatic command to make the changes take effect: 
 
+``` 
 py manage.py collectstatic 
 
 py manage.py runserver 
+``` 
