@@ -12,16 +12,24 @@ python -m venv venv
 ```
 (venv) C:\Users\Your Name>py -m pip install Django 
 ```
+<h2>Run server</h2>
+
+```
+py manage.py runserver 
+```
+
+<h2>Start project</h2>
 
 New project called 'my_tennis_club':
 
 ```
 django-admin startproject my_tennis_club 
 
-py manage.py runserver 
 ```
 
+<h2>Start app</h2>
 Create a new Django application called 'members'
+
 ```
 py manage.py startapp members 
 ```
