@@ -65,7 +65,7 @@ def members(request):
   return HttpResponse(template.render(context, request)) 
 ```
  
-Send a variable called 'context' with the value equals to id from the Class called Members to the template
+Send a variable called 'context' with the value equal to the id of the Class called Members to the template
 ```
 def details(request, id): 
   mymember = Member.objects.get(id=id) 
@@ -75,7 +75,8 @@ def details(request, id):
   } 
   return HttpResponse(template.render(context, request)) 
 ``` 
- 
+
+Load a template
 ``` 
 def main(request): 
   template = loader.get_template('main.html') 
