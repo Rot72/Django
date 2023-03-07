@@ -36,7 +36,7 @@ def members(request):
     return HttpResponse("Hello world!") 
 ```
 
-send a variable named 'points' with the value 5 into the template 
+Send a variable named 'points' with the value 5 into the template 
 
 ```
 from django.http import HttpResponse 
