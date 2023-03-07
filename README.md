@@ -11,7 +11,7 @@ python -m venv venv
 (venv) C:\Users\Your Name>django-admin --version 
 ```
 
-**_New project called 'my_tennis_club':_**
+New project called 'my_tennis_club':
 
 ```
 django-admin startproject my_tennis_club 
@@ -19,14 +19,14 @@ django-admin startproject my_tennis_club
 py manage.py runserver 
 ```
 
-**_create a new Django application called 'members'_**
+Create a new Django application called 'members'
 ```
 py manage.py startapp members 
 ```
 
 <h2>Views</h2>
 
-**_view called 'members' that will return 'Hello World!'_**
+View called 'members' that will return 'Hello World!'
 
 ```
 from django.shortcuts import render 
