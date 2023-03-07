@@ -106,7 +106,7 @@ from . import views
 urlpatterns = [ 
     path('members/', views.members, name='members'), 
 ] 
- ``` 
+``` 
 
 list of paths of how to handle incomming requests 
 
@@ -153,13 +153,13 @@ if statement:
 {% else %} 
   <h1>Goodbye</h1> 
 {% endif %} 
- 
 ``` 
+
 Parentheses are not allowed in if statements in Django, so when you combine and and or operators, it is important to know that parentheses are added for and but not for or. 
 
 ``` 
 {% if (greeting == 1 and day == "Friday") or greeting == 5 %} 
- ``` 
+``` 
 
 To check if a certain item is not present in an object. 
 
