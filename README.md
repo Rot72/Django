@@ -49,7 +49,8 @@ def members(request):
   } 
   return HttpResponse(template.render(context, request)) 
 ```
- 
+
+Send a variable called 'context' with all values from the Class called Members to the Template
 ```
 from django.http import HttpResponse 
 from django.template import loader 
@@ -62,9 +63,10 @@ def members(request):
     'mymembers': mymembers, 
   } 
   return HttpResponse(template.render(context, request)) 
-
+```
  
-
+Send a variable called 'context' with the value equals to id from the Class called Members to the Template
+```
 def details(request, id): 
   mymember = Member.objects.get(id=id) 
   template = loader.get_template('details.html') 
