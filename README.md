@@ -50,7 +50,7 @@ def members(request):
   return HttpResponse(template.render(context, request)) 
 ```
 
-Send a variable called 'context' with all values from the Class called Members to the Template
+Send a variable called 'context' with all values from the Class called Members to the template
 ```
 from django.http import HttpResponse 
 from django.template import loader 
