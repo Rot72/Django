@@ -2,20 +2,18 @@
 Some commands in Django
 
 Virtual Environment 
-
+```
 python -m venv venv 
 
 (venv) C:\Users\Your Name>py -m pip install Django 
 
 (venv) C:\Users\Your Name>django-admin --version 
-
+```
 new project called 'my_tennis_club': django-admin startproject my_tennis_club 
-
+```
 py manage.py runserver 
-
+```
 create a new Django application called 'members': py manage.py startapp members 
-
- 
 
 Views 
 
