@@ -1,7 +1,7 @@
 # Django
 Some commands in Django
 
-**Virtual Environment **
+**Virtual Environment**
 ```
 python -m venv venv 
 
@@ -9,7 +9,11 @@ python -m venv venv
 
 (venv) C:\Users\Your Name>django-admin --version 
 ```
-new project called 'my_tennis_club': django-admin startproject my_tennis_club 
+
+**New project called 'my_tennis_club':**
+
+```
+django-admin startproject my_tennis_club 
 ```
 py manage.py runserver 
 ```
