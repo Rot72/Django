@@ -18,20 +18,22 @@ django-admin startproject my_tennis_club
 
 py manage.py runserver 
 ```
-**create a new Django application called 'members'**
+
+**_create a new Django application called 'members'_**
 ```
 py manage.py startapp members 
 ```
-**Views **
 
+<h2>Views**</h2>
 view called 'members' that will return 'Hello World!'  
 
+```
 from django.shortcuts import render 
 from django.http import HttpResponse 
  
 def members(request): 
     return HttpResponse("Hello world!") 
-
+```
  
 
 send a variable named 'points' with the value 5 into the template 
