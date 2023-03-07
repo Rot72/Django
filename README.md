@@ -5,10 +5,12 @@ Some commands in Django
 
 ```
 python -m venv venv 
+```
 
+<h2>Install Django</h2>
+
+```
 (venv) C:\Users\Your Name>py -m pip install Django 
-
-(venv) C:\Users\Your Name>django-admin --version 
 ```
 
 New project called 'my_tennis_club':
