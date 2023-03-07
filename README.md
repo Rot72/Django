@@ -10,18 +10,18 @@ python -m venv venv
 (venv) C:\Users\Your Name>django-admin --version 
 ```
 
-**New project called 'my_tennis_club':**
+**_New project called 'my_tennis_club':_**
 
 ```
 django-admin startproject my_tennis_club 
 
 py manage.py runserver 
 ```
-**create a new Django application called 'members'
+**create a new Django application called 'members'**
 ```
 py manage.py startapp members 
 ```
-Views 
+**Views **
 
 view called 'members' that will return 'Hello World!'  
 
@@ -76,7 +76,7 @@ def main(request):
   return HttpResponse(template.render()) 
  
 
-URLS 
+**URLS** 
 
 Create a file named urls.py in the same folder as the views.py file, and type this code in it: 
 
@@ -120,7 +120,7 @@ urlpatterns = [
 
  
 
-Syntax 
+**Syntax **
 
 <h1>Hello {{ firstname }}, how are you?</h1> 
 
@@ -170,20 +170,17 @@ def testing(request):
   return HttpResponse(template.render(context, request))   
 
  
-
-Diferentes objetos 
+**Different objects**
 
 {% if x is y %} 
   <h1>YES</h1> 
 {% else %} 
   <h1>NO</h1> 
 {% endif %} 
-
 NO 
 
  
-
-Diferentes objetos mesmos valores 
+**Different objects same values**
 
 {% if x == y %} 
   <h1>YES</h1> 
@@ -195,7 +192,7 @@ YES
 
  
 
-Mesmos objetos 
+**Same objects** 
 
 {% with var1=x var2=x %} 
   {% if var1 is var2 %} 
@@ -207,20 +204,16 @@ Mesmos objetos
 
  
 
-Comments 
+**Comments **
 
 <h1>Welcome Everyone</h1> 
 {% comment "this was the original welcome message" %} 
     <h1>Welcome ladies and gentlemen</h1> 
 {% endcomment %} 
 
- 
-
 <h1>Welcome{# Everyone#}</h1> 
 
- 
-
-For Loops 
+**For Loops **
 
 {% for x in cars %} 
   <h1>{{ x.brand }}</h1> 
