@@ -25,7 +25,7 @@ py manage.py startapp members
 ```
 
 <h2>Views</h2>
-**_view called 'members' that will return 'Hello World!'_**
+**_view called 'members' that will return Hello World! _**
 
 ```
 from django.shortcuts import render 
