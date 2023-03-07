@@ -24,8 +24,8 @@ py manage.py runserver
 py manage.py startapp members 
 ```
 
-<h2>Views**</h2>
-view called 'members' that will return 'Hello World!'  
+<h2>Views</h2>
+**view called 'members' that will return 'Hello World!'**
 
 ```
 from django.shortcuts import render 
