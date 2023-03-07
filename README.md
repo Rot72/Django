@@ -224,7 +224,7 @@ YES
 {% endwith %} 
 ```  
 
-**Comments **
+**Comments**
 
 ``` 
 <h1>Welcome Everyone</h1> 
@@ -235,7 +235,7 @@ YES
 <h1>Welcome{# Everyone#}</h1> 
 ``` 
 
-**For Loops **
+**For Loops**
 
 ``` 
 {% for x in cars %} 
