@@ -726,7 +726,7 @@ STATIC_ROOT = BASE_DIR / 'productionfiles'
 STATIC_URL = 'static/' 
 ``` 
  
-When collecting static static files for your project, you have to run a specific command 
+When collecting static files for your project, you have to run a specific command 
 
 ``` 
 py manage.py collectstatic  
