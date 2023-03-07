@@ -321,7 +321,7 @@ forloop.revcounter0
 
 This is done in the settings.py file in the my_tennis_club folder. 
 
-Look up the INSTALLED_APPS[] list and add the members app like this: 
+Look up the INSTALLED_APPS[ ] list and add the members app like this: 
 
 ``` 
 INSTALLED_APPS = [ 
