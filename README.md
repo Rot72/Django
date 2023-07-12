@@ -23,7 +23,6 @@ New project called 'my_tennis_club':
 
 ```
 django-admin startproject my_tennis_club 
-
 ```
 
 <h2>Run server</h2>
