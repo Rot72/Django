@@ -35,7 +35,7 @@ py \my_tennis_club\manage.py runserver
 Create a new Django application called 'members'
 
 ```
-py \my_tennis_club\manage.py startapp members 
+py \my_tennis_club\manage.py startapp \my_tennis_club\members 
 ```
 
 <h2>Views</h2>
