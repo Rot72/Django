@@ -7,6 +7,10 @@ Some commands in Django
 python -m venv venv 
 ```
 
+```
+.\venv\Scripts\activate
+```
+
 <h2>Install Django</h2>
 
 ```
