@@ -14,7 +14,7 @@ python -m venv venv
 <h2>Install Django</h2>
 
 ```
-(venv) C:\Users\Your Name>py -m pip install Django 
+(venv) C:\Users\Name>pip install Django 
 ```
 
 <h2>Start project</h2>
